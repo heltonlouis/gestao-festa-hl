@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	
+	<head><meta charset="UTF-8" /></head>
+	
+	<body>
+		 <section layout:fragment="corpo">
+			 <form class="row g-3 m-5" method="POST" th:object=${convidado}
+				   th:action="${convidado == null} ? @{/convidados/salvar} : @{/convidados/editar/{id}(id=${convidado})}">
+
+				 <div class="col-auto">
+					 <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
+				 </div>
+
+				 <div class="col-auto">
+					 <input type="number" class="form-control" placeholder="Acompanhantes"
+							th:field="*{quantidadeAcompanhantes}" />
+				 </div>
+
+				 <div class="col-auto">
+					 <input type="hidden" id="id" th:field="*{id}"/>
+					 <input type="submit" class="btn btn-primary" value="Salvar" />
+				 </div>
+			 </form>
+		 </section>
+	</body>
+</html>

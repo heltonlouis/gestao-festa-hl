@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"></head>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
 <body>
     <header th:fragment="cabecalho">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -13,23 +17,30 @@
                             </a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-light" th:href="@{/convidados/listar}"> <i class="oi oi-spreadsheet"></i>
+                            <a class="nav-link text-light" th:href="@{/convidados/listar}"> <i
+                                    class="oi oi-spreadsheet"></i>
                                 <span>Convidados</span>
                             </a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-light" th:href="@{/convidados/cadastrar}"> <i class="oi oi-plus"></i>
+                            <a class="nav-link text-light" th:href="@{/convidados/cadastrar}"> <i
+                                    class="oi oi-plus"></i>
                                 <span>Cadastro</span>
                             </a>
                         </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-light" th:href="@{/usuarios}"> <i class="oi oi-headphones"></i>
+                                <span>Usuários</span>
+                            </a>
                     </ul>
                     <span class="navbar-text text-light">
                         Meu primeiro teste solo com Spring e Thymeleaf
-                      </span>
+                    </span>
                 </div>
             </div>
         </nav>
     </header>
 
 </body>
+
 </html>

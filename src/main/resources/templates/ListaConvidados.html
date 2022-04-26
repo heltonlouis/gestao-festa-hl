@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout}">
-	
-	<head><meta charset="UTF-8" /></head>
-	
-	<body>
-		<section layout:fragment="corpo">
-			<div class="col-md-6 m-5">
-				<div class="card mb-2">
-					<h1 class="card-header fs-2 badge bg-dark">Lista de Convidados</h1>
-				</div>
 
-				<table class="table table-dark table-hover text-center">
-					<thead>
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section layout:fragment="corpo" class="d-flex justify-content-center">
+		<div class="col-md-6 m-5">
+			<div class="card mb-2">
+				<h1 class="card-header fs-2 badge bg-dark">Lista de Convidados</h1>
+			</div>
+
+			<table class="table table-dark table-hover text-center">
+				<thead>
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Nome</th>
 						<th scope="col">Acompanhantes</th>
 						<th scope="col">Ações</th>
 					</tr>
-					</thead>
+				</thead>
 
 
-					<tbody>
+				<tbody>
 					<tr th:each="c,i : ${convidados}">
 						<td scope="row" th:text="${i.count}">1</td>
 						<td th:text="${c.nome}">João</td>
 						<td th:text="${c.quantidadeAcompanhantes}">3</td>
 						<td>
-							<a class="btn btn-info btn-sm mx-2" th:href="@{/convidados/editar/{id} (id=${c.id})}" role="button">
+							<a class="btn btn-info btn-sm mx-2" th:href="@{/convidados/editar/{id} (id=${c.id})}"
+								role="button">
 								<span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 							</a>
 
-							<a class="btn btn-danger btn-sm mx-2" th:href="@{/convidados/excluir/{id} (id=${c.id})}" role="button">
+							<a class="btn btn-danger btn-sm mx-2" th:href="@{/convidados/excluir/{id} (id=${c.id})}"
+								role="button">
 								<span class="oi oi-x" title="Editar" aria-hidden="true"></span>
 							</a>
 
-							<a class="btn btn-warning btn-sm mx-2" th:href="@{/convidados/report/{id} (id=${c.id})}" role="button" target="_blank">
+							<a class="btn btn-warning btn-sm mx-2" th:href="@{/convidados/report/{id} (id=${c.id})}"
+								role="button" target="_blank">
 								<span class="oi oi-file" title="Editar" aria-hidden="true"></span>
 							</a>
 						</td>
-					</tr >
-					</tbody>
-				</table>
+					</tr>
+				</tbody>
+			</table>
 
-			</div>
-		</section>
-	</body>
+		</div>
+	</section>
+</body>
+
 </html>

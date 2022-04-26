@@ -61,28 +61,28 @@ public class CabecalhoPdf extends PdfPageEventHelper {
         PdfPTable header = new PdfPTable(2);
 
         // formatação
-        header.setWidths(new float[] { 0.15f , 0.85f });
+        header.setWidths(new float[] { 0.1f , 0.9f });
         header.setTotalWidth(250);
         header.setLockedWidth(true);
         // header.getDefaultCell().setFixedHeight(40);
     
 
         // adiciona logotipo
-        Image logo = Image.getInstance(CabecalhoPdf.class.getResource("/static/logo_estado.jpeg"));
+        // Image logo = Image.getInstance(CabecalhoPdf.class.getResource("/static/logo_estado.jpeg"));
 
         PdfPCell cell = new PdfPCell();
-        cell.addElement(logo);
+        // cell.addElement(logo);
         cell.setBorder(Rectangle.BOTTOM);
         header.addCell(cell);
 
         // adiciona cabeçalho
         PdfPCell text = new PdfPCell();
         text.setPaddingBottom(5);
-        text.setPaddingLeft(15);
+        text.setPaddingLeft(2);
         text.setBorder(Rectangle.BOTTOM);
         text.setPaddingBottom(5);
-        text.addElement(new Phrase("GOVERNO DO ESTADO DO MARANHÃO", new Font(Font.FontFamily.HELVETICA, 10)));
-        text.addElement(new Phrase("SECRETARIA DE SEGURANÇA PÚBLICA", new Font(Font.FontFamily.HELVETICA, 9)));
+        text.addElement(new Phrase("HAME SOFTWARES E ANALISE DE DADOS", new Font(Font.FontFamily.HELVETICA, 10)));
+        text.addElement(new Phrase("   EVENTO DE TECNOLOGIA DA INFORMAÇÃO", new Font(Font.FontFamily.HELVETICA, 9)));
         header.addCell(text);
 
         // write content

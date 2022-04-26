@@ -14,9 +14,7 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.ColumnText;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -49,7 +47,8 @@ public class GerarPdfService {
             document.getPageSize();
 
             adicionaTitle(writer);
-            adicionaConvidados(writer);
+            tituloConvidados(writer);
+            adicionaConvidados(writer, convidado);
 
             document.close();
 
@@ -72,24 +71,36 @@ public class GerarPdfService {
         ColumnText.showTextAligned(writer.getDirectContent(), Element.ALIGN_CENTER, title, 300, 750, 0);
     }
 
-    private void adicionaConvidados(PdfWriter writer) throws DocumentException {
+    private void tituloConvidados(PdfWriter writer) throws DocumentException {
 
         PdfPTable convidados = new PdfPTable(2);
         
-        convidados.setWidths(new int[]{ 20, 14});
+        convidados.setWidths(new int[]{ 50, 50});
         convidados.setTotalWidth(500);
+        convidados.getDefaultCell().setFixedHeight(20);
+        convidados.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+        convidados.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
 
-        PdfPCell nome = new PdfPCell();
-        nome.setBorder(Rectangle.BOX);
-        nome.addElement(new Phrase("Nome do Convidado: "));
-        convidados.addCell(nome);
-
-        PdfPCell acompanhantes = new PdfPCell();
-        acompanhantes.setBorder(Rectangle.BOX);
-        acompanhantes.addElement(new Phrase("Número de Acompanhantes: "));
-        convidados.addCell(acompanhantes);
+        convidados.addCell(new Phrase("Nome do convidado"));
+        convidados.addCell(new Phrase("Número de acompanhantes"));
 
         convidados.writeSelectedRows(0, -1, 50, 720, writer.getDirectContent());
+    }
+
+    private void adicionaConvidados(PdfWriter writer, Optional<Convidado> convidado) throws DocumentException {
+
+        PdfPTable convidados = new PdfPTable(2);
+        
+        convidados.setWidths(new int[]{ 50, 50});
+        convidados.setTotalWidth(500);
+        convidados.getDefaultCell().setFixedHeight(20);
+        convidados.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+        convidados.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        convidados.addCell(new Phrase(convidado.get().getNome()));
+        convidados.addCell(new Phrase(convidado.get().getQuantidadeAcompanhantes() + ""));
+
+        convidados.writeSelectedRows(0, -1, 50, 700, writer.getDirectContent());
     }
 
 }

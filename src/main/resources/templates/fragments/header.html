@@ -32,10 +32,20 @@
                             <a class="nav-link text-light" th:href="@{/usuarios}"> <i class="oi oi-headphones"></i>
                                 <span>Usuários</span>
                             </a>
+                        </li>
                     </ul>
-                    <span class="navbar-text text-light">
-                        Meu primeiro teste solo com Spring e Thymeleaf
-                    </span>
+                    
+                    <div class="text">
+                        <span class="navbar-text text-light mx-3">
+                            Meu primeiro teste solo com Spring e Thymeleaf
+                        </span>
+                    </div>
+
+                    <a th:href="@{/logout}" class="botao-sair" title="sair">
+                        <span>
+                            <i class="oi oi-account-logout"></i>
+                        </span>
+                    </a>
                 </div>
             </div>
         </nav>

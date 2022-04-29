@@ -1,0 +1,9 @@
+.botao-sair {
+    color: #864343;
+    text-decoration: none;
+}
+
+.botao-sair:hover {
+    color: red;
+    text-decoration: underline;
+}
